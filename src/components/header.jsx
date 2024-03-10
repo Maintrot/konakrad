@@ -19,7 +19,7 @@ export default function Header() {
           {!user ? (
             <><Link className='link' to='/login'>SignIn</Link><Link className='link' to='/register'>SignUp</Link></>
           ) : (
-            <><Link className='link' to='/logout'>LogOut</Link></>
+            <><Link className='link' to='/home'>Home</Link><Link className='link' to='/logout'>LogOut</Link></>
           )}
         </nav>
       </div>

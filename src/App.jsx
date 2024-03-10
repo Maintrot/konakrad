@@ -6,7 +6,8 @@ import axios from 'axios'
 export const UserContext = createContext()
 
 export default function App() {
-  const [user, setUser] = useState(false)
+
+  const [user, setUser] = useState(true)
 
   useEffect(() => {
     if (localStorage.getItem('access_token')) {

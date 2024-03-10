@@ -4,13 +4,13 @@ import { UserContext } from '@/App.jsx'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
 
-export default function Register() {
-  const [firstname, setFirstname] = useState('')
-  const [lastname, setLastname] = useState('')
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
+export default function Register(props) {
+  const [firstname, setFirstname] = useState(props.propsFirstname)
+  const [lastname, setLastname] = useState(props.propsLastname)
+  const [username, setUsername] = useState(props.propsUsername)
+  const [email, setEmail] = useState(props.propsEmail)
+  const [password, setPassword] = useState(props.propsPassword)
+  const [passwordConfirm, setPasswordConfirm] = useState(props.propsPasswordConfirm)
   const [user, setUser] = useContext(UserContext)
   const navigate = useNavigate()
 
