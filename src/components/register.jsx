@@ -4,27 +4,31 @@ import { UserContext } from '@/App.jsx'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
 
-export default function Register(props) {
-  const [firstname, setFirstname] = useState(props.propsFirstname)
-  const [lastname, setLastname] = useState(props.propsLastname)
-  const [username, setUsername] = useState(props.propsUsername)
-  const [email, setEmail] = useState(props.propsEmail)
-  const [password, setPassword] = useState(props.propsPassword)
-  const [passwordConfirm, setPasswordConfirm] = useState(props.propsPasswordConfirm)
+export default function Register() {
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [nameUser, setNameUser] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [avatar, setAvatar] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
   const [user, setUser] = useContext(UserContext)
   const navigate = useNavigate()
-
-  function setInputFirstname(event) {
-    setFirstname(event.target.value)
-  }
-  function setInputLastname(event) {
-    setLastname(event.target.value)
-  }
+  
   function setInputUsername(event) {
     setUsername(event.target.value)
   }
   function setInputEmail(event) {
     setEmail(event.target.value)
+  }
+  function setInputNameUser(event) {
+    setNameUser(event.target.value)
+  }
+  function setInputPhoneNumber(event) {
+    setPhoneNumber(event.target.value)
+  }
+  function setInputAvatar(event) {
+    setAvatar(event.target.value)
   }
   function setInputPassword(event) {
     setPassword(event.target.value)
@@ -40,17 +44,18 @@ export default function Register(props) {
   async function sendForm(event) {
     event.preventDefault()
 
-    const response = axios.post('http://127.0.0.1:8000/api/v1/auth/register/', {
+    const response = axios.post('http://217.151.230.35:888/api/v1/regauth/register/', {
       username: username,
       email: email,
+      name: nameUser,
+      phone_number: phoneNumber,
+      avatar: avatar,
       password: password,
-      confirm_password: passwordConfirm,
-      first_name: firstname,
-      last_name: lastname
+      password_confirm: passwordConfirm,
     })
       .then((res) => {
         console.log(res)
-        setUser(true)
+        localStorage.setItem('user_id', res.data.id)
 
         navigate('/')
       })
@@ -65,19 +70,21 @@ export default function Register(props) {
       })
   }
 
-  return(
+  return (
     <div className="back">
       <div className='register'>
         <form onSubmit={sendForm} method='post'>
           <h2>Register</h2>
-          <label htmlFor="firstname">Firstname: </label><br/>
-          <input onChange={setInputFirstname} type="text" name="firstname" placeholder="enter your firstname" /><br/>
-          <label htmlFor="lastname">Lastname: </label><br/>
-          <input onChange={setInputLastname} type="text" name="lastname" placeholder="enter your lastname" /><br/>
-          <label htmlFor="name">Name: </label><br/>
+          <label htmlFor="username">Username: </label><br/>
           <input onChange={setInputUsername} type="text" name="username" placeholder="enter your username" /><br/>
           <label htmlFor="email">Email: </label><br/>
           <input onChange={setInputEmail} type="email" name="email" placeholder="enter your Email" /><br/>
+          <label htmlFor="name">Name: </label><br/>
+          <input onChange={setInputNameUser} type="text" name="name" placeholder="enter your username" /><br/>
+          <label htmlFor="phonenumber">Phone number: </label><br/>
+          <input onChange={setInputPhoneNumber} type="text" name="phonenumber" placeholder="enter your username" /><br/>
+          <label htmlFor="avatar">Avatar: </label><br/>
+          <input onChange={setInputAvatar} type="text" name="avatar" placeholder="enter your username" /><br/>
           <label htmlFor="password">Password: </label><br/>
           <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" /><br/>
           <label htmlFor="password_again">Password again: </label><br/>

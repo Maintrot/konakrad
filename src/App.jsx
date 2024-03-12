@@ -4,10 +4,14 @@ import { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const UserContext = createContext()
+export const UserInfo = createContext()
 
 export default function App() {
 
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
+  const [userInfo, setUserInfo] = useState({
+
+  })
 
   useEffect(() => {
     if (localStorage.getItem('access_token')) {
@@ -16,9 +20,11 @@ export default function App() {
   }, [])
 
   async function checkUser(access) {
-    let res = axios.post('', config)
+    axios.defaults.headers.common = {'Authorization': 'Bearer' + access}
+    let response = axios.get('http://217.151.230.35:888/api/v1/regauth/user-info/')
       .then((res) => {
         setUser(true)
+        setUserInfo(res.data)
       })
       .catch((error) => {
         if (error.response) {
@@ -33,7 +39,9 @@ export default function App() {
 
   return(
     <UserContext.Provider value={[user, setUser]}>
-      <Routers/>
+      <UserInfo.Provider value={[userInfo, setUserInfo]}>
+        <Routers/>
+      </UserInfo.Provider>
     </UserContext.Provider>
   )
 }

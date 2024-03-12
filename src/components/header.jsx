@@ -12,14 +12,18 @@ export default function Header() {
       </div>
       <div className='hdr_nav'>
         <nav>
-          <Link className='link' to='/context'>Context</Link>
-          <Link className='link' to='/calculator'>InputCreate</Link>
-          <Link className='link' to='/'>AboutUs</Link>
-          <Link className='link' to='/'>News</Link>
+          <div>
+            <Link className='link page' to='/context'>Context</Link>
+            <Link className='link page' to='/calculator'>InputCreate</Link>
+          </div>
+          <div>
+            <Link className='link home' to='/'>AboutUs</Link>
+            <Link className='link home' to='/'>News</Link>
+          </div>
           {!user ? (
-            <><Link className='link' to='/login'>SignIn</Link><Link className='link' to='/register'>SignUp</Link></>
+            <div><Link className='link auth' to='/login'>SignIn</Link><Link className='link auth' to='/register'>SignUp</Link></div>
           ) : (
-            <><Link className='link' to='/home'>Home</Link><Link className='link' to='/logout'>LogOut</Link></>
+            <div><Link className='link auth' to='/home'>Home</Link><Link className='link auth' to='/logout'>LogOut</Link></div>
           )}
         </nav>
       </div>
