@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react'
 import axios from 'axios'
 import { UserContext } from '@/App.jsx'
-import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
 
 export default function Register() {
@@ -41,7 +40,7 @@ export default function Register() {
     navigate('/')
   }
 
-  async function sendForm(event) {
+  async function sendData(event) {
     event.preventDefault()
 
     const response = axios.post('http://217.151.230.35:888/api/v1/regauth/register/', {
@@ -73,7 +72,7 @@ export default function Register() {
   return (
     <div className="back">
       <div className='register'>
-        <form onSubmit={sendForm} method='post'>
+        <form onSubmit={sendData} method='post'>
           <h2>Register</h2>
           <label htmlFor="username">Username: </label><br/>
           <input onChange={setInputUsername} type="text" name="username" placeholder="enter your username" /><br/>
