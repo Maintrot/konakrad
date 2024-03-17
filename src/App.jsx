@@ -20,7 +20,8 @@ export default function App() {
   }, [])
 
   async function checkUser(access) {
-    axios.defaults.headers.common = {'Authorization': 'Bearer' + access}
+    const access_token = localStorage.getItem('access_token')
+    axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
     let response = axios.get('http://217.151.230.35:888/api/v1/regauth/user-info/')
       .then((res) => {
         setUser(true)
