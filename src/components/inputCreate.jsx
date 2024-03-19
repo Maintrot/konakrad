@@ -1,21 +1,21 @@
 export default function InputCreate() {
   return(
-    <div>
-      <div>
+    <div className="inpcre">
+      <div className="inpcre_way">
         <h3>Главная Клиентам Запрос ставки и условий погрузочно-<br />разгрузочных работ</h3>
       </div>
-      <div>
+      <div className="inpcre_title">
         <h1>Запрос ставки и условий погрузочно-разгрузочных работ</h1>
       </div>
-      <div>
+      <div className="inpcre_itemform">
         <form action="">
           <label htmlFor="">Наименование груза *</label>
           <input type="text" />
-          <label htmlFor="">Размер партии *</label>
+          <label htmlFor=""> </label>
           <input type="text" />
-          <label htmlFor="">ед. измерения *</label>
+          <label htmlFor=""></label>
           <input type="text" />
-          <label htmlFor="">Направление перевозки *</label>
+          <label htmlFor=""></label>
           <input type="text" />
           <label htmlFor="">Пункт назначения перевозки</label>
           <input type="text" />
@@ -35,7 +35,7 @@ export default function InputCreate() {
           <input type="text" />
         </form>
       </div>
-      <div>
+      <div className="inpcre_sayform">
         <h1>Просим сообщить:</h1>
         <form action="">
           <input type="radio" /><p>Ставку ПРР</p>
@@ -44,7 +44,7 @@ export default function InputCreate() {
           <input type="radio" /><p>Возможность приёма и перевалки груза в указанные сроки</p>
         </form>
       </div>
-      <div>
+      <div className="inpcre_callform">
         <h1>Информация для обратной связи:</h1>
           <label htmlFor="">Имя, фамилия</label>
           <input type="text" />
@@ -55,8 +55,8 @@ export default function InputCreate() {
           <label htmlFor="">Адрес эл. почты *</label>
           <input type="text" />
       </div>
-      <div>
-        <button>отправить</button>
+      <div className="inpcre_btn">
+        <button className="">отправить</button>
         <img src="" alt="" />
       </div>
     </div>
