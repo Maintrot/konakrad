@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { UserContext } from '../App'
+import { UserContext } from '@/App'
+import VectorLogo from '@/assets/VectorLogo'
+import VectorLogoWhite from '@/assets/VectorLogoWhite'
 
 export default function Header() {
   const [user, setUser] = useContext(UserContext)
@@ -8,7 +10,7 @@ export default function Header() {
   return(
     <header>
       <div className='hdr_img'>
-        <img src="../assets/Vector.svg" alt="Vector.svg" />
+        <VectorLogo/>
       </div>
       <div className='hdr_nav'>
         <nav>

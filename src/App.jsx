@@ -26,6 +26,7 @@ export default function App() {
       .then((res) => {
         setUser(true)
         setUserInfo(res.data)
+        console.log(res.data)
       })
       .catch((error) => {
         if (error.response) {

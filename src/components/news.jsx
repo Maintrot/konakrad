@@ -1,3 +1,5 @@
+import VectorStrelkaPurple from "@/assets/VectorStrelkaPurple";
+
 export default function News() {
   return(
     <div className="news">
@@ -8,7 +10,7 @@ export default function News() {
           </div>
           <div  className="news_title_all">
             <h4>все новости</h4>
-            <div></div>
+            <div className="circle_purple"><VectorStrelkaPurple/></div>
           </div>
         </div>
       </div>

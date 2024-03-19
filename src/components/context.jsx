@@ -1,8 +1,10 @@
+import VectorStrelkaAlter from "@/assets/VectorStrelkaAlter"
+
 export default function Context() {
   return(
     <div className="context">
       <div className="context_way">
-        <h3>Главная Клиентам Заявка и перечень документов для заключения договоров</h3>
+      <h3>Главная</h3><VectorStrelkaAlter className='strelka_alter'/><h3>Клиентам</h3><VectorStrelkaAlter/><h3>Заявка и перечень документов для заключения договоров</h3>
       </div>
       <div className="context_title">
         <h1>Заявка и перечень документов для заключения<br />договоров</h1>

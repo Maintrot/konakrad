@@ -1,20 +1,25 @@
+import VectorPunkt from "@/assets/VectorPunkt"
+import VectorLogoWhite from "@/assets/VectorLogoWhite"
+import VectorPhone from "@/assets/VectorPhone"
+import VectorMail from "@/assets/VectorMail"
+
 export default function Footer() {
   return(
     <footer>
       <div className="footer_up">
         <div className="footer_up_adress">
-          <img src="" alt="" />
+          <VectorPunkt/>
           <h4>123456, г. Тавима, ул. Морская, д. 21</h4>
         </div>
         <div className="footer_up_logo">
-          <img src="" alt="" />
+          <VectorLogoWhite/>
         </div>
         <div className="footer_up_num">
-          <img src="" alt="" />
+          <VectorPhone/>
           <h4>+7 (123) 456-67-89</h4>
         </div>
         <div className="footer_up_mail">
-          <img src="" alt="" />
+          <VectorMail/>
           <h4>order@visma.ru</h4>
         </div>
       </div>

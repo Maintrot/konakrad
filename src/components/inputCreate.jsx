@@ -1,8 +1,10 @@
+import VectorStrelkaAlter from "@/assets/VectorStrelkaAlter"
+
 export default function InputCreate() {
   return(
     <div className="inpcre">
       <div className="inpcre_way">
-        <h3>Главная Клиентам Запрос ставки и условий погрузочно-<br />разгрузочных работ</h3>
+        <h3>Главная</h3><VectorStrelkaAlter/><h3>Клиентам</h3><VectorStrelkaAlter/><h3>Запрос ставки и условий погрузочно-разгрузочных работ</h3>
       </div>
       <div className="inpcre_title">
         <h1>Запрос ставки и условий погрузочно-разгрузочных работ</h1>

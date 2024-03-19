@@ -1,3 +1,5 @@
+import VectorVideo from "@/assets/VectorVideo"
+
 export default function AboutUs() {
   return(
     <div className="we">
@@ -24,7 +26,7 @@ export default function AboutUs() {
           </ul>
         </div>
         <div className="we_we_right_side">
-          <div className="we_we_right_side_video"></div>
+          <div className="we_we_right_side_video"><div className="vecwork_video"><VectorVideo/></div></div>
           <div className="we_we_right_side_block">
             <h4>Запрос ставки и условий погрузочно-разгрузочных работ</h4>
             <h3>Рассчитайте моментально стоимость полных<br />портовых услуг в порту VISMA</h3>
