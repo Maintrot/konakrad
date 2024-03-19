@@ -719,3 +719,20 @@ button:hover {
 .context_str_num {
   list-style-type: decimal;
 }
+
+.inpcre {
+  padding: 0px 15% 0px 15%;
+}
+
+.inpcre_way {
+
+}
+
+.inpcre_title {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
