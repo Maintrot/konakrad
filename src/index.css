@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Arial', Arial, Helvetica, sans-serif;
   background-color: #ffffff;
 }
 
@@ -676,3 +676,46 @@ button:hover {
 #3d348b
 #5DB7DE
 #5a529c */
+
+.context {
+  padding: 0px 15% 0px 15%;
+}
+
+.context_way {
+
+}
+
+.context_title {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.context_str {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.context_str p, .context_str ul li {
+  color: #000;
+  font: 700;
+}
+
+.context_str ul {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.context_str ul li {
+  margin-bottom: 15px;
+}
+
+.context_str_num {
+  list-style-type: decimal;
+}
