@@ -8,7 +8,6 @@ export default function Register() {
   const [email, setEmail] = useState('')
   const [nameUser, setNameUser] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [avatar, setAvatar] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [user, setUser] = useContext(UserContext)
@@ -26,9 +25,7 @@ export default function Register() {
   function setInputPhoneNumber(event) {
     setPhoneNumber(event.target.value)
   }
-  function setInputAvatar(event) {
-    setAvatar(event.target.value)
-  }
+
   function setInputPassword(event) {
     setPassword(event.target.value)
   }
@@ -48,7 +45,6 @@ export default function Register() {
       email: email,
       name: nameUser,
       phone_number: phoneNumber,
-      avatar: avatar,
       password: password,
       password_confirm: passwordConfirm,
     })
@@ -82,8 +78,6 @@ export default function Register() {
           <input onChange={setInputNameUser} type="text" name="name" placeholder="enter your username" /><br/>
           <label htmlFor="phonenumber">Phone number: </label><br/>
           <input onChange={setInputPhoneNumber} type="text" name="phonenumber" placeholder="enter your username" /><br/>
-          <label htmlFor="avatar">Avatar: </label><br/>
-          <input onChange={setInputAvatar} type="text" name="avatar" placeholder="enter your username" /><br/>
           <label htmlFor="password">Password: </label><br/>
           <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" /><br/>
           <label htmlFor="password_again">Password again: </label><br/>
