@@ -77,7 +77,7 @@ export default function Register() {
           <label htmlFor="name">Name: </label><br/>
           <input onChange={setInputNameUser} type="text" name="name" placeholder="enter your username" /><br/>
           <label htmlFor="phonenumber">Phone number: </label><br/>
-          <input onChange={setInputPhoneNumber} type="text" name="phonenumber" placeholder="enter your username" /><br/>
+          <input onChange={setInputPhoneNumber} type="tel" name="phonenumber" placeholder="enter your username" /><br/>
           <label htmlFor="password">Password: </label><br/>
           <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" /><br/>
           <label htmlFor="password_again">Password again: </label><br/>

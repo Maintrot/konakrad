@@ -697,7 +697,7 @@ button:hover {
   
 }
 
-.context_way {
+.context_way, .inpcre_way{
   display: flex;
   justify-content: start;
   gap: 10px;
@@ -707,7 +707,7 @@ button:hover {
   padding: 0px 18% 0px 18%;
 }
 
-.context_title {
+.context_title, .inpcre_title{
   color: #000;
   font-size: 20px;
   font-weight: 700;
@@ -748,27 +748,119 @@ button:hover {
 
 }
 
-.inpcre_way {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-  background-color: #f5f5f9;
-  padding: 0px 18% 0px 18%;
-}
-
-.inpcre_title {
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
+.inpcre_itemform {
   display: flex;
   justify-content: center;
-  padding: 0px 18% 0px 18%;
+  flex-direction: row;
+  padding: 0px 30% 0px 30%;
 }
 
-.strelka_alter {
-  
+.inpcre_itemform_form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-right: 20px;
+  font-weight: 700;
+  font-size: 13px
+}
+
+.inpcre_itemform_form input, .inpcre_itemform_form textarea {
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-color: #f5f5f9;
+  border-width: 1px;
+  height: 25px;
+}
+
+.file_btn::-webkit-file-upload-button {
+  background-color: #5DB7DE;
+  color: #fff;
+  border-radius: 5px;
+  border-color: #5DB7DE;
+  height: 25px;
+  font-weight: 700;
+}
+
+.inpcre_sayform {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0px 30% 0px 30%;
+}
+
+.inpcre_sayform_form {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
+
+.inpcre_sayform_form_btn {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.inpcre_callform {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 30% 0px 30%;
+}
+
+.inpcre_callform_title {
+  display: flex;
+  justify-content: start;
+}
+
+.inpcre_callform_form {
+  display: flex;
+  justify-content: start;
+}
+
+.inpcre_callform_form_col {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-right: 20px;
+  font-weight: 700;
+  font-size: 13px
+}
+
+.inpcre_callform_form_col input {
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-color: #f5f5f9;
+  border-width: 1px;
+  height: 25px;
+}
+
+.inpcre_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease;
+  padding: 0px 30% 0px 30%;
+}
+
+.inpcre_btn:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 1px #000;
+}
+
+.inpcre_btn h3 {
+  color: #3d348b;
+  margin-right: 15px;
+}
+
+.inpcre_btn_div {
+  border-radius: 100%;
+  border: 2px solid #3d348b;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 
 .vecwork {
