@@ -2,7 +2,7 @@ import VectorStrelkaPurple from "@/assets/VectorStrelkaPurple";
 
 export default function News() {
   return(
-    <div className="news">
+    <div className="news" id="news">
       <div>
         <div className="news_title">
           <div className="news_title_text">

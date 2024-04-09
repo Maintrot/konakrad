@@ -20,7 +20,7 @@ export default function Header() {
           </div>
           <div>
             <Link className='link home' to='/'>AboutUs</Link>
-            <Link className='link home' to='/'>News</Link>
+            <a className='link home' href='#news'>News</a>
           </div>
           {!user ? (
             <div><Link className='link auth' to='/login'>SignIn</Link><Link className='link auth' to='/register'>SignUp</Link></div>
