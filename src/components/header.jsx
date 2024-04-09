@@ -11,6 +11,7 @@ export default function Header() {
     <header>
       <div className='hdr_img'>
         <VectorLogo/>
+        <img src="../src/assets/cloud-fog-svgrepo-com.svg" alt="" />
       </div>
       <div className='hdr_nav'>
         <nav>

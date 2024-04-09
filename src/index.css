@@ -886,3 +886,24 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  border-radius: 20px;
+}
