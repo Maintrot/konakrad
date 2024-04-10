@@ -896,14 +896,14 @@ button:hover {
   left: 0;
   align-items: center;
   justify-content: center;
-  display: none;
 }
-.modal.active {
-  display: flex;
-}
-.modal-content {
+.modalWindow {
   width: 400px;
   height: 600px;
   background-color: white;
   border-radius: 20px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

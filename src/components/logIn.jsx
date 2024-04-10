@@ -1,14 +1,12 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import axios from "axios"
 import { UserContext } from "@/App"
-import { UserInfo } from '@/App'
 import { useNavigate } from "react-router-dom"
 
 export default function LogIn() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useContext(UserContext)
-  const [userInfo, setUserInfo] = useContext(UserInfo)
   const navigate = useNavigate()
 
   function setInputUsername(event) {
@@ -34,8 +32,6 @@ export default function LogIn() {
         setUser(true)
 
         navigate('/')
-
-        window.location.reload()
       })
       .catch((error) => {
         if (error.response) {

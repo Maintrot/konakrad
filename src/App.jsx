@@ -6,6 +6,7 @@ import axios from 'axios'
 export const UserContext = createContext()
 export const UserInfo = createContext()
 export const ModalContext = createContext()
+export const ModalStatus = createContext()
 
 export default function App() {
 
@@ -13,13 +14,20 @@ export default function App() {
   const [userInfo, setUserInfo] = useState({
 
   })
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const [status, setStatus] = useState('userAvatar')
 
   useEffect(() => {
     if (localStorage.getItem('access_token')) {
       checkUser(localStorage.getItem('access_token'))
     }
   }, [])
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token')) {
+      checkUser(localStorage.getItem('access_token'))
+    }
+  }, [user])
 
   async function checkUser(access) {
     const access_token = localStorage.getItem('access_token')
@@ -44,9 +52,11 @@ export default function App() {
   return(
     <UserContext.Provider value={[user, setUser]}>
       <ModalContext.Provider value={[visible, setVisible]}>
-        <UserInfo.Provider value={[userInfo, setUserInfo]}>
-          <Routers/>
-        </UserInfo.Provider>
+        <ModalStatus.Provider value={[status, setStatus]}>
+          <UserInfo.Provider value={[userInfo, setUserInfo]}>
+            <Routers/>
+          </UserInfo.Provider>
+        </ModalStatus.Provider>
       </ModalContext.Provider>
     </UserContext.Provider>
   )

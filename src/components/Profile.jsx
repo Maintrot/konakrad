@@ -1,7 +1,7 @@
 import { UserInfo } from '@/App'
 import { useContext } from 'react'
 
-export default function Home() {
+export default function Profile() {
   const [userInfo, setUserInfo] = useContext(UserInfo)
 
   return(

@@ -6,7 +6,7 @@ import LogInPage from '@/pages/LogInPage';
 import LogOutPage from '@/pages/LogOutPage';
 import RegisterPage from '@/pages/RegisterPage';
 import ErrorPage from '@/pages/ErrorPage';
-import HomePage from '@/pages/HomePage';
+import ProfilePage from '@/pages/ProfilePage';
 
 export default function Routers() {
   return(
@@ -18,7 +18,7 @@ export default function Routers() {
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/login' element={<LogInPage/>}/>
         <Route path='/logout' element={<LogOutPage/>}/>
-        <Route path='/home' element={<HomePage/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/*' element={<ErrorPage/>}/>
       </Routes>
     </BrowserRouter>
