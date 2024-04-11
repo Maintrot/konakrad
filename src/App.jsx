@@ -10,11 +10,11 @@ export const ModalStatus = createContext()
 
 export default function App() {
 
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(true)
   const [userInfo, setUserInfo] = useState({
 
   })
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
   const [status, setStatus] = useState('userAvatar')
 
   useEffect(() => {
