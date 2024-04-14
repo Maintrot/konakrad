@@ -22,20 +22,24 @@ export default function Profile() {
 
   return(
     <div className="home">
-      <div className="home_avatar">
-        <div>
+      <div className='home_div'>
+        <div className="home_avatar">
+          <div>
+          </div>
+          <h2>{userInfo.avatar}</h2>
         </div>
-        <h2>{userInfo.avatar}</h2>
         <button onClick={changeAvatar} className='change_btn'>change avatar</button>
       </div>
-      <div className="home_user">
-        <h1>user-info</h1>
-        <ul>
-          <li><h3>{userInfo.username}</h3></li>
-          <li><h3>{userInfo.email}</h3></li>
-          <li><h3>{userInfo.name}</h3></li>
-          <li><h3>{userInfo.phone_number}</h3></li>
-        </ul>
+      <div className='home_div'>
+        <div className="home_user">
+          <h1>user-info</h1>
+          <ul>
+            <li><h3>{userInfo.username}</h3></li>
+            <li><h3>{userInfo.email}</h3></li>
+            <li><h3>{userInfo.name}</h3></li>
+            <li><h3>{userInfo.phone_number}</h3></li>
+          </ul>
+        </div>
         <button onClick={changeInfo} className='change_btn'>change info</button>
       </div>
     </div>

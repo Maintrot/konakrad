@@ -33,10 +33,10 @@ export default function Modal() {
                         <h1>Avatar</h1>
                         <div className='mod_img'></div>
                         <form onSubmit={confirmPhoto} className="mod_form" action="">
-                            <input type="file" />
-                            <input type="submit" value='submit' />
+                            <input className='file_btn' type="file" />
+                            <input className='submit' type="submit" value='submit' />
+                            <button onClick={back} className='mod_back_btn'>back</button>
                         </form>
-                        <button onClick={back} className='mod_back_btn'>back</button>
                     </div>
                 ) : (
                     <div className='modalWindow userChangeInfo'>
@@ -50,9 +50,9 @@ export default function Modal() {
                             <input type="text" name='name' />
                             <label htmlFor="phone_number">new phone number:</label>
                             <input type="text" name='phone_number' />
-                            <input type="submit" value='submit' />
+                            <input className='submit' type="submit" value='submit' />
+                            <button onClick={back} className='mod_back_btn'>back</button>
                         </form>
-                        <button onClick={back} className='mod_back_btn'>back</button>
                     </div>
                 )}
             </div>
