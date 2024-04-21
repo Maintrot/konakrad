@@ -26,6 +26,9 @@ export default function Header() {
           ) : (
             <div><Link className='link auth' to='/profile'>Profile</Link><Link className='link auth' to='/logout'>LogOut</Link></div>
           )}
+          <div>
+            <Link className='link page' to='/pokedex'>Pokedex</Link>
+          </div>
         </nav>
       </div>
     </header>

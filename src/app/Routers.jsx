@@ -7,6 +7,8 @@ import LogOutPage from '@/pages/LogOutPage';
 import RegisterPage from '@/pages/RegisterPage';
 import ErrorPage from '@/pages/ErrorPage';
 import ProfilePage from '@/pages/ProfilePage';
+import PokemonPage from '@/pages/PokemonPage';
+import PokedexPage from '@/pages/PokedexPage';
 
 export default function Routers() {
   return(
@@ -19,6 +21,8 @@ export default function Routers() {
         <Route path='/login' element={<LogInPage/>}/>
         <Route path='/logout' element={<LogOutPage/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
+        <Route path='/pokedex' element={<PokedexPage/>} />
+        <Route path='/pokemon' element={<PokemonPage/>} />
         <Route path='/*' element={<ErrorPage/>}/>
       </Routes>
     </BrowserRouter>
