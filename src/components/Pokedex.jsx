@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 export default function Pokedex() {
   const [pokedex, setPokedex] = useState([])
+  const [pokedexPokemons, setPokedexPokemons] = useState([])
 
   useEffect(() => {
     getData()
