@@ -22,7 +22,7 @@ export default function Routers() {
         <Route path='/logout' element={<LogOutPage/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/pokedex' element={<PokedexPage/>} />
-        <Route path='/pokemon' element={<PokemonPage/>} />
+        <Route path='/pokemon/:pokeid' element={<PokemonPage/>} />
         <Route path='/*' element={<ErrorPage/>}/>
       </Routes>
     </BrowserRouter>

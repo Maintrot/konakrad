@@ -1,9 +1,10 @@
 import axios from "axios"
 import { useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
 
 export default function Pokedex() {
   const [pokedex, setPokedex] = useState([])
-  const [pokedexPokemons, setPokedexPokemons] = useState([])
+  const [pokedexIndexes, setPokedexIndexes] = useState([])
 
   useEffect(() => {
     getData()
@@ -14,9 +15,10 @@ export default function Pokedex() {
 
     if (responce?.data?.results) {
       // console.log(responce.data)
-      responce.data.results.forEach((item) => {
+      responce.data.results.forEach(async (item) => {
         axios.get(item.url)
           .then((res) => {
+            setPokedexIndexes()
             setPokedex((prevState) => {
               return [...prevState, {...res.data}]
             })
@@ -25,16 +27,18 @@ export default function Pokedex() {
     }
   }
 
-  const viewPokemon = pokedex.map((item, index) => {
+  const viewPokemon = pokedex.map((item) => {
     // console.log(item)
     return (
-      <li key={index} >
-        <div>
-          <img src={item.sprites.other['official-artwork'].front_default} alt="pokemon_img" />
+      <li key={item.id} >
+        <Link to={'/pokemon/' + item.id}>
           <div>
-            <h2>{item.name}</h2>
+            <img src={item.sprites.other['official-artwork'].front_default} alt="pokemon_img" />
+            <div>
+              <h2>{item.name}</h2>
+            </div>
           </div>
-        </div>
+        </Link>
       </li>
     )
   })
