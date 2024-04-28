@@ -1,0 +1,70 @@
+.main {
+  background-image: url(@/assets/Rectangle.png);
+  height: 445px;
+  display: flex;
+  justify-content: space-around;
+  padding: 80px 190px;
+}
+
+.main_title {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.main_title h1 {
+  font-size: 40px;
+}
+
+.main_title p {
+  font-size: 14px;
+}
+
+.main_title h4 {
+  font-size: 16px;
+}
+
+.main_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.main_grid_block {
+  background-color: #5DB7DE;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 226px;
+  height: 185px;
+  justify-content: space-between;
+  padding: 22px 28px 22px 28px;
+}
+
+.main_grid_block h4 {
+  color: #fff;
+  font-size: 13px;
+}
+
+.main_grid_block h3 {
+  color: #fff;
+  font-size: 19px;
+}
+
+.vecwork {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+}
+
+.vecwork_circle {
+  border-radius: 100%;
+  border: 2px solid #fff;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}

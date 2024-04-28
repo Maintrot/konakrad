@@ -1,0 +1,36 @@
+.login {
+  display: block;
+  background-color: #5a529c;
+  border-radius: 20px;
+  border-radius: 20px;
+  padding: 20px 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h2 {
+  color: #fff;
+}
+.login label {
+  display: block;
+  margin: 10px 5px;
+  color: #fff;
+}
+
+.login input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-width: 0px;
+}
+.login_submit {
+  background-color: greenyellow;
+  transition: all 0.1s ease;
+}
+
+.login_submit:hover {
+  transform: scale(1.05);
+  background-color: rgb(133, 209, 18);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

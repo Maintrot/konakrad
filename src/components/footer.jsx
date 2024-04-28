@@ -1,3 +1,4 @@
+import style from '@/components/Footer.module.css'
 import VectorPunkt from "@/assets/VectorPunkt"
 import VectorLogoWhite from "@/assets/VectorLogoWhite"
 import VectorPhone from "@/assets/VectorPhone"
@@ -6,25 +7,25 @@ import VectorMail from "@/assets/VectorMail"
 export default function Footer() {
   return(
     <footer>
-      <div className="footer_up">
-        <div className="footer_up_adress">
+      <div className={style.footer_up}> 
+        <div className={style.footer_up_adress}>
           <VectorPunkt/>
           <h4>123456, г. Тавима, ул. Морская, д. 21</h4>
         </div>
-        <div className="footer_up_logo">
+        <div className={style.footer_up_logo}>
           <VectorLogoWhite/>
         </div>
-        <div className="footer_up_num">
+        <div className={style.footer_up_num}>
           <VectorPhone/>
           <h4>+7 (123) 456-67-89</h4>
         </div>
-        <div className="footer_up_mail">
+        <div className={style.footer_up_mail}>
           <VectorMail/>
           <h4>order@visma.ru</h4>
         </div>
       </div>
-      <div className="footer_down">
-        <div className="footer_down_list">
+      <div className={style.footer_down}>
+        <div className={style.footer_down_list}>
           <div>
             <h3>информация о юр. лице</h3>
             <ul>
@@ -36,7 +37,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer_down_list">
+        <div className={style.footer_down_list}>
           <div>
             <h3>Закупки</h3>
             <ul>
@@ -46,7 +47,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer_down_list">
+        <div className={style.footer_down_list}>
           <div>
             <h3>акционерам</h3>
             <ul>
@@ -58,7 +59,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer_down_list">
+        <div className={style.footer_down_list}>
           <div>
             <h3>о компании</h3>
             <ul>
@@ -73,7 +74,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer_down_text">
+      <div className={style.footer_down_text}>
         <h5>все права защищены АО VISMA</h5>
       </div>
     </footer>

@@ -1,3 +1,4 @@
+import style from '@/components/Modal.module.css'
 import { useState, useContext} from 'react'
 import { ModalContext, ModalStatus } from '@/App'
 
@@ -27,21 +28,21 @@ export default function Modal() {
             <>
             </>
         ) : (
-            <div className='modal'>
+            <div className={style.modal}>
                 {status == 'userAvatar' ? (
-                    <div className='modalWindow userChangeAvatar'>
+                    <div className={style.modalWindow}>
                         <h1>Avatar</h1>
-                        <div className='mod_img'></div>
-                        <form onSubmit={confirmPhoto} className="mod_form" action="">
+                        <div className={style.mod_img}></div>
+                        <form onSubmit={confirmPhoto} className={style.mod_form} action="">
                             <input className='file_btn' type="file" />
-                            <input className='submit' type="submit" value='submit' />
-                            <button onClick={back} className='mod_back_btn'>back</button>
+                            <input className={style.submit} type="submit" value='submit' />
+                            <button onClick={back} className={style.mod_back_btn}>back</button>
                         </form>
                     </div>
                 ) : (
-                    <div className='modalWindow userChangeInfo'>
+                    <div className={style.modalWindow}>
                         <h1>Info</h1>
-                        <form onSubmit={confirmInfo} className="mod_form" action="">
+                        <form onSubmit={confirmInfo} className={style.mod_form} action="">
                             <label htmlFor="username">new username:</label>
                             <input type="text" name='username' />
                             <label htmlFor="email">new email:</label>
@@ -50,8 +51,8 @@ export default function Modal() {
                             <input type="text" name='name' />
                             <label htmlFor="phone_number">new phone number:</label>
                             <input type="text" name='phone_number' />
-                            <input className='submit' type="submit" value='submit' />
-                            <button onClick={back} className='mod_back_btn'>back</button>
+                            <input className={style.submit} type="submit" value='submit' />
+                            <button onClick={back} className={style.mod_back_btn}>back</button>
                         </form>
                     </div>
                 )}

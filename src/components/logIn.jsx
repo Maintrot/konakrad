@@ -1,3 +1,4 @@
+import style from '@/components/LogIn.module.css'
 import { useState, useContext } from "react"
 import axios from "axios"
 import { UserContext } from "@/App"
@@ -50,14 +51,14 @@ export default function LogIn() {
 
   return(
     <div className="back">
-        <div className="login">
+        <div className={style.login}>
           <form onSubmit={sendForm} method="post">
             <h2>Login</h2>
             <label htmlFor="name">Name: </label>
             <input onChange={setInputUsername} type="text" name="username" placeholder="enter your username" />
             <label htmlFor="password">Password: </label>
             <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" />
-            <input className="submit" type="submit" value="submit" />
+            <input className={style.login_submit} type="submit" value="submit" />
             <button onClick={back} className='op_next'>Back</button>
           </form>
         </div>

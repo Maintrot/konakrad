@@ -1,3 +1,4 @@
+import style from '@/components/Register.module.css'
 import { useState, useContext } from 'react'
 import axios from 'axios'
 import { UserContext } from '@/App.jsx'
@@ -67,7 +68,7 @@ export default function Register() {
 
   return (
     <div className="back">
-      <div className='register'>
+      <div className={style.register}>
         <form onSubmit={sendData} method='post'>
           <h2>Register</h2>
           <label htmlFor="username">Username: </label><br/>
@@ -82,7 +83,7 @@ export default function Register() {
           <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" /><br/>
           <label htmlFor="password_again">Password again: </label><br/>
           <input onChange={setInputPasswordConfirm} type="password" name="password_again" placeholder="enter your password again" /><br/>
-          <input className="submit" type="submit" value="submit" /><br/>
+          <input className={style.register_submit} type="submit" value="submit" /><br/>
           <button onClick={back} className='op_next'>Back</button>
         </form>
       </div>

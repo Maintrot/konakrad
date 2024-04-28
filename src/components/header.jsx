@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '@/App'
 import VectorLogo from '@/assets/VectorLogo'
+import style from '@/components/Header.module.css'
 
 export default function Header() {
   const [user, setUser] = useContext(UserContext)

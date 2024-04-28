@@ -1,0 +1,67 @@
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalWindow {
+  width: 400px;
+  height: 600px;
+  background-color: #f5f5f9;
+  border-radius: 20px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.mod_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mod_form input, .mod_img input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-width: 0px;
+}
+
+.mod_form .submit, .mod_img .submit {
+  background-color: greenyellow;
+  transition: all 0.1s ease;
+}
+
+.mod_form .submit:hover, .mod_img .submit:hover {
+  transform: scale(1.05);
+  background-color: rgb(133, 209, 18);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mod_back_btn {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: red;
+  transition: all 0.1s ease;
+}
+
+.mod_back_btn:hover {
+  transform: scale(1.05);
+  background-color: rgb(206, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

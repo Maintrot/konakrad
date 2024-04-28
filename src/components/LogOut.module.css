@@ -1,0 +1,57 @@
+.logout {
+  display: block;
+  background-color: #fff;
+  border-radius: 20px;
+  border-radius: 20px;
+  padding: 20px 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logout h2 {
+  color: #000;
+}
+
+.logout label {
+  display: block;
+  margin: 10px 5px;
+  color: #000;
+}
+
+.logout_no {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: greenyellow;
+  transition: all 0.1s ease;
+}
+
+.logout_yes {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: red;
+  transition: all 0.1s ease;
+}
+
+.logout_yes:hover{
+  transform: scale(1.05);
+  background-color: rgb(206, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logout_no:hover {
+  transform: scale(1.05);
+  background-color: rgb(133, 209, 18);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logout button .form_link {
+  text-decoration: none;
+  font-weight: 700;
+}
