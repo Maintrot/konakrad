@@ -1,3 +1,4 @@
+import style from '@/components/Pokemon.module.css'
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
@@ -18,9 +19,9 @@ async function getData() {
 
 console.log(pokemon)
   return (
-    <div className="pokemon_div">
-      <div className="pokemon_img">
-        <img src={pokemon?.sprites?.other['official-artwork']?.front_default} alt="" />
+    <div className={style.pokemon_div}>
+      <div className={style.pokemon_img}>
+        <img src={pokemon?.sprites?.other['official-artwork']?.front_default} alt="pokemon img" />
       </div>
       <h2>{pokemon.name}</h2>
     </div>
