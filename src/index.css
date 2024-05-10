@@ -256,3 +256,222 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+:root{
+  --color-bug: #92bc2c;
+  --color-dark: #595761;
+  --color-dragon: #0c69c8;
+  --color-electric: #f2d94e;
+  --color-fairy: #ee90e6;
+  --color-fighting: #d3425f;
+  --color-fire: #fba54c;
+  --color-flying: #a1bbec;
+  --color-ghost: #5f6dbc;
+  --color-grass: #5fbd58;
+  --color-ground: #da7c4d;
+  --color-ice: #75d0c1;
+  --color-normal: #a0a29f;
+  --color-poison: #b763cf;
+  --color-psychic: #fa8581;
+  --color-rock: #c9bb8a;
+  --color-steel: #5695a3;
+  --color-water: #539ddf;
+}
+
+.bug {
+  background-color: var(--color-bug);
+  box-shadow: 0 0 15px var(--color-bug);
+}
+
+.bug:hover {
+  --color-bug: #7bcf00;
+  transform: scale(1.2);
+}
+
+.dark {
+  background-color: var(--color-dark);
+  box-shadow: 0 0 15px var(--color-dark);
+}
+
+.dark:hover {
+  --color-dark: #5a566a;
+  transform: scale(1.2);
+}
+
+.dragon {
+  background-color: var(--color-dragon);
+  box-shadow: 0 0 15px var(--color-dragon);
+}
+
+.dragon:hover {
+  --color-dragon: #0076ff;
+  transform: scale(1.2);
+}
+
+.electric {
+  background-color: var(--color-electric);
+  box-shadow: 0 0 15px var(--color-electric);
+}
+
+.electric:hover {
+  --color-electric: #ffde00;
+  transform: scale(1.2);
+}
+
+.fairy {
+  background-color: var(--color-fairy);
+  box-shadow: 0 0 15px var(--color-fairy);
+}
+
+.fairy:hover {
+  --color-fairy: #ff76ff;
+  transform: scale(1.2);
+}
+
+.fighting {
+  background-color: var(--color-fighting);
+  box-shadow: 0 0 15px var(--color-fighting);
+}
+
+.fighting:hover {
+  --color-fighting: #ff215b;
+  transform: scale(1.2);
+}
+
+.fire {
+  background-color: var(--color-fire);
+  box-shadow: 0 0 15px var(--color-fire);
+}
+
+.fire:hover {
+  --color-fire: #ff9900;
+  transform: scale(1.2);
+}
+
+.flying {
+  background-color: var(--color-flying);
+  box-shadow: 0 0 15px var(--color-flying);
+}
+
+.flying:hover {
+  --color-flying: #89bdff;
+  transform: scale(1.2);
+}
+
+.ghost {
+  background-color: var(--color-ghost);
+  box-shadow: 0 0 15px var(--color-ghost);
+}
+
+.ghost:hover {
+  --color-ghost: #4e6aff;
+  transform: scale(1.2);
+}
+
+.grass {
+  background-color: var(--color-grass);
+  box-shadow: 0 0 15px var(--color-grass);
+}
+
+.grass:hover {
+  --color-grass: #1cd80e;
+  transform: scale(1.2);
+}
+
+.ground {
+  background-color: var(--color-ground);
+  box-shadow: 0 0 15px var(--color-ground);
+}
+
+.ground:hover {
+  --color-ground: #ff6b0d;
+  transform: scale(1.2);
+}
+
+.ice {
+  background-color: var(--color-ice);
+  box-shadow: 0 0 15px var(--color-ice);
+}
+
+.ice:hover {
+  --color-ice: #4bdcc4;
+  transform: scale(1.2);
+}
+
+.normal {
+  background-color: var(--color-normal);
+  box-shadow: 0 0 15px var(--color-normal);
+}
+
+.normal:hover {
+  --color-normal: #9fa39d;
+  transform: scale(1.2);
+}
+
+.poison {
+  background-color: var(--color-poison);
+  box-shadow: 0 0 15px var(--color-poison);
+}
+
+.poison:hover {
+  --color-poison: #f149ff;
+  transform: scale(1.2);
+}
+
+.psychic {
+  background-color: var(--color-psychic);
+  box-shadow: 0 0 15px var(--color-psychic);
+}
+
+.psychic:hover {
+  --color-psychic: #ff6c64;
+  transform: scale(1.2);
+}
+
+.rock {
+  background-color: var(--color-rock);
+  box-shadow: 0 0 15px var(--color-rock);
+}
+
+.rock:hover {
+  --color-rock: #d8bc5a;
+  transform: scale(1.2);
+}
+
+.steel {
+  background-color: var(--color-steel);
+  box-shadow: 0 0 15px var(--color-steel);
+}
+
+.steel:hover {
+  --color-steel: #23a1bd;
+  transform: scale(1.2);
+}
+
+.water {
+  background-color: var(--color-water);
+  box-shadow: 0 0 15px var(--color-water);
+}
+
+.water:hover {
+  --color-water: #14a8ff;
+  transform: scale(1.2);
+}
+
+.pokemon, .pokedex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+
+.pokedex {
+  height: 50px;
+  width: 50px;
+}
+
+.pokedex svg {
+  height: 32px;
+  width: 32px;
+}

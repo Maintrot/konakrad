@@ -27,18 +27,15 @@ export default function Pokedex() {
             })
           })
       })
-
-      setStatus(true)
-
     }
   }
 
   useEffect(() => {
     unique(pokedex)
     console.log('useEffect')
-  }, [status])
+  }, [])
 
-  async function unique(pokedex) {
+  function unique(pokedex) {
     const pokeList = pokedex
 
     const uniqueList = Array.from(new Set(pokeList.map(JSON.stringify))).map(JSON.parse)

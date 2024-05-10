@@ -1,0 +1,125 @@
+.background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.button {
+  background-color: lime;
+  font-size: large;
+  border-radius: 5px;
+  border: 0px;
+  height: 35px;
+  transition: all 0.3s ease;
+  box-shadow: 1px;
+}
+
+.button:hover {
+  background-color: brown;
+}
+
+.button:active {
+  transform: scale(0.99);
+  box-shadow: none;
+}
+
+@keyframes test_animation {
+  0% {
+    transform: scaleX(1);
+  }
+
+  50% {
+    transform: scaleX(1.5);
+  }
+}
+
+.blue_block {
+  width: 400px;
+  height: 400px;
+  background-color: aqua;
+  border-radius: 50px;
+  transition: all 1s ease 0.3s;
+}
+
+.blue_block:hover {
+  animation-name: test_animation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-delay: 0.3s;
+  animation-direction: normal alternate-reverse;
+  background-color: red;
+  animation-iteration-count: infinite;
+}
+
+.gridtest_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-content: center;
+  gap: 10px;
+}
+
+.gridtest_block {
+  background-color: #ff6c64;
+  height: 25vh;
+  width: 22vw;
+  border-radius: 5px;
+  border: 2px solid #d3425f;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.gridtest_block:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.gridtest_blockdiver {
+  background-color: #d3425f;
+  transform: translateY(100%);
+  transition: all 0.3s 0.2s ease-in;
+}
+
+.gridtest_block:hover .gridtest_blockdiver {
+  transform: translateY(-5%);
+  transition: all 0.3s ease-out;
+}
+
+.visual_flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100vw;
+  transform-style: flat;
+}
+
+.visual_block {
+  background-color: #5DB7DE;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  width: 500px;
+  transform: rotateY(50deg);
+  transition: all 0.3s 0.3s ease-in;
+}
+
+.visual_block:hover {
+  background-color: #3d348b;
+  transform: rotateY(0deg);
+  transition: all 0.3s ease-in;
+}

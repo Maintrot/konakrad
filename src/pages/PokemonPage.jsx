@@ -1,11 +1,11 @@
-import Header from '@/components/Header'
 import Pokemon from '@/components/Pokemon'
 import Footer from '@/components/Footer'
+import HeaderPokedex from '@/components/HeaderPokedex'
 
 export default function PokemonPage() {
   return (
     <div>
-    <Header/>
+    <HeaderPokedex/>
     <Pokemon/>
     <Footer/>
     </div>

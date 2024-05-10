@@ -9,12 +9,14 @@ import ErrorPage from '@/pages/ErrorPage';
 import ProfilePage from '@/pages/ProfilePage';
 import PokemonPage from '@/pages/PokemonPage';
 import PokedexPage from '@/pages/PokedexPage';
+import TestPage from '@/pages/TestPage';
 
 export default function Routers() {
   return(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<MainPage/>}/>
+        <Route path='/test' element={<TestPage/>} />
         <Route path='/context' element={<ContextPage/>}/>
         <Route path='/calculator' element={<CalculatorPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>

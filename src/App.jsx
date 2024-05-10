@@ -7,6 +7,7 @@ export const UserContext = createContext()
 export const UserInfo = createContext()
 export const ModalContext = createContext()
 export const ModalStatus = createContext()
+export const ModalPokemon = createContext()
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
   })
   const [visible, setVisible] = useState(false)
   const [status, setStatus] = useState('userAvatar')
+  const [pokeActive, setPokeActive] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem('access_token')) {
@@ -50,14 +52,16 @@ export default function App() {
   }
 
   return(
-    <UserContext.Provider value={[user, setUser]}>
-      <ModalContext.Provider value={[visible, setVisible]}>
-        <ModalStatus.Provider value={[status, setStatus]}>
-          <UserInfo.Provider value={[userInfo, setUserInfo]}>
-            <Routers/>
-          </UserInfo.Provider>
-        </ModalStatus.Provider>
-      </ModalContext.Provider>
-    </UserContext.Provider>
+    <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
+      <UserContext.Provider value={[user, setUser]}>
+        <ModalContext.Provider value={[visible, setVisible]}>
+          <ModalStatus.Provider value={[status, setStatus]}>
+            <UserInfo.Provider value={[userInfo, setUserInfo]}>
+              <Routers/>
+            </UserInfo.Provider>
+          </ModalStatus.Provider>
+        </ModalContext.Provider>
+      </UserContext.Provider>
+    </ModalPokemon.Provider>
   )
 }
