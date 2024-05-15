@@ -2,7 +2,7 @@ import style from '@/components/HeaderPokedex.module.css'
 import { Link } from 'react-router-dom'
 import { ModalPokemon } from '@/App'
 import { useContext, useEffect } from 'react'
-import { HeaderColor } from '@/App'
+import { HeaderColor, SearchContext, PokedexContext} from '@/App'
 import TypeColor from '@/services/TypeColor'
 import PokeLogoBug from '@/assets/pokelogos/PokeLogoBug'
 import PokeLogoDragon from '@/assets/pokelogos/PokeLogoDragon'
@@ -25,8 +25,10 @@ import PokeLogoWater from '@/assets/pokelogos/PokeLogoWater'
 
 
 export default function HeaderPokedex() {
+  const [searchTerm, setSearchTerm] = useContext(SearchContext)
   const [pokeActive, setPokeActive] = useContext(ModalPokemon)
   const [headerColor, setHeaderColor] = useContext(HeaderColor)
+  const [pokedex, setPokedex] = useContext(PokedexContext)
 
   useEffect(() => {
     function changeHeader() {
@@ -34,6 +36,10 @@ export default function HeaderPokedex() {
 
     changeHeader()
   }, [pokeActive])
+
+  if (!pokeActive) {
+    setHeaderColor('#f5f5f9')
+  }
 
   return(
     <>
@@ -65,6 +71,14 @@ export default function HeaderPokedex() {
                 <PokeLogoSteel/>
                 <PokeLogoWater/>
               </nav>
+              <input
+                type="text"
+                value={searchTerm}
+                autoFocus
+                autoComplete='off'
+                placeholder='Find your pokemon'
+                onChange={(e) => setSearchTerm(e.target.value)} 
+              />
             </div>
           </>
         ) : (

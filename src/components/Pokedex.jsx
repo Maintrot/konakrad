@@ -2,14 +2,22 @@ import style from '@/components/Pokedex.module.css'
 import axios from "axios"
 import { useState, useEffect, useContext } from 'react'
 import { Link } from "react-router-dom"
-import { ModalPokemon } from '@/App'
+import { ModalPokemon, PokedexContext } from '@/App'
+import TypeShow from '../services/TypeShow'
 
 export default function Pokedex() {
   const [pokeActive, setPokeActive] = useContext(ModalPokemon)
 
-  const [pokedex, setPokedex] = useState([])
+  const [pokedex, setPokedex] = useContext(PokedexContext)
   const [status, setStatus] = useState(false)
   const [pokedexUnique, setPokedexUnique] = useState([])
+
+  function filterCards(searchText, listOfCards) {
+    if (!searchText) {
+      return listOfCards
+    }
+    return listOfCards.filter(({text}) => text.toLowerCase().includes(searchText.toLowerCase()))
+  }
 
   useEffect(() => {
     getData()
@@ -51,6 +59,7 @@ export default function Pokedex() {
   }
 
   const viewPokemon = pokedex.map((item, index) => {
+
     return (
       <li key={index} >
         <Link className={style.link} onClick={() => {setPokeActive(true)}} to={'/pokemon/' + item.id}>
@@ -60,7 +69,7 @@ export default function Pokedex() {
               <div>
                 {item?.types?.map((item, index) => (
                   <li key={index}>
-                    <p>{item.type.name}</p>
+                    <TypeShow gay={item?.type?.name}/>
                   </li>
                 ))}
               </div>

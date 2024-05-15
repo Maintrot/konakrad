@@ -1,12 +1,12 @@
 import { HeaderColor } from "@/App";
 import { useContext } from "react";
 
-export default function TypeColor(pokemon) {
+export default function TypeColor(props) {
   const [headerColor, setHeaderColor] = useContext(HeaderColor)
 
-  const viewTypes = pokemon.types['0'].type.name
-
-  switch (viewTypes) {
+  console.log(props)
+  
+  switch (props?.nigger) {
     case 'bug':
       setHeaderColor('#92bc2c')
       break

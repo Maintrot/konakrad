@@ -17,122 +17,121 @@ import PokeLogoRock from '@/assets/pokelogos/PokeLogoRock'
 import PokeLogoSteel from '@/assets/pokelogos/PokeLogoSteel'
 import PokeLogoWater from '@/assets/pokelogos/PokeLogoWater'
 
-export default function TypeShow(pokemon) {
-  const viewTypes = pokemon.types.map((item) => {
-    switch (item.type.name) {
-      case 'bug':
-        return (
-          <>
-            <PokeLogoBug/>
-          </>
-        );
-      case 'dark':
-        return (
-          <>
-            <PokeLogoDark/>
-          </>
-        );
-      case 'dragon':
-        return (
-          <>
-            <PokeLogoDragon/>
-          </>
-        );
-      case 'electric':
-        return (
-          <>
-            <PokeLogoElectric/>
-          </>
-        );
-      case 'fairy':
-        return (
-          <>
-            <PokeLogoFairy/>
-          </>
-        );
-      case 'fighting':
-        return (
-          <>
-            <PokeLogoFighting/>
-          </>
-        );
-      case 'fire':
-        return (
-          <>
-            <PokeLogoFire/>
-          </>
-        );
-      case 'flying':
-        return (
-          <>
-            <PokeLogoFlying/>
-          </>
-        );
-      case 'ghost':
-        return (
-          <>
-            <PokeLogoGhost/>
-          </>
-        );
-      case 'grass':
-        return (
-          <>
-            <PokeLogoGrass/>
-          </>
-        );
-      case 'ground':
-        return (
-          <>
-            <PokeLogoGround/>
-          </>
-        );
-      case 'ice':
-        return (
-          <>
-            <PokeLogoIce/>
-          </>
-        );
-      case 'normal':
-        return (
-          <>
-            <PokeLogoNormal/>
-          </>
-        );
-      case 'poison':
-        return (
-          <>
-            <PokeLogoPoison/>
-          </>
-        );
-      case 'psychic':
-        return (
-          <>
-            <PokeLogoPsychic/>
-          </>
-        );
-      case 'rock':
-        return (
-          <>
-            <PokeLogoRock/>
-          </>
-        );
-      case 'steel':
-        return (
-          <>
-            <PokeLogoSteel/>
-          </>
-        );
-      case 'water':
-        return (
-          <>
-            <PokeLogoWater/>
-          </>
-        );
-      default:
-        return (
-          <>
-          </>
-        )
-    }
-  })
+export default function TypeShow(props) {
+  console.log(props)
+  switch (props?.gay) {
+    case 'bug':
+      return (
+        <>
+          <PokeLogoBug/>
+        </>
+      );
+    case 'dark':
+      return (
+        <>
+          <PokeLogoDark/>
+        </>
+      );
+    case 'dragon':
+      return (
+        <>
+          <PokeLogoDragon/>
+        </>
+      );
+    case 'electric':
+      return (
+        <>
+          <PokeLogoElectric/>
+        </>
+      );
+    case 'fairy':
+      return (
+        <>
+          <PokeLogoFairy/>
+        </>
+      );
+    case 'fighting':
+      return (
+        <>
+          <PokeLogoFighting/>
+        </>
+      );
+    case 'fire':
+      return (
+        <>
+          <PokeLogoFire/>
+        </>
+      );
+    case 'flying':
+      return (
+        <>
+          <PokeLogoFlying/>
+        </>
+      );
+    case 'ghost':
+      return (
+        <>
+          <PokeLogoGhost/>
+        </>
+      );
+    case 'grass':
+      return (
+        <>
+          <PokeLogoGrass/>
+        </>
+      );
+    case 'ground':
+      return (
+        <>
+          <PokeLogoGround/>
+        </>
+      );
+    case 'ice':
+      return (
+        <>
+          <PokeLogoIce/>
+        </>
+      );
+    case 'normal':
+      return (
+        <>
+          <PokeLogoNormal/>
+        </>
+      );
+    case 'poison':
+      return (
+        <>
+          <PokeLogoPoison/>
+        </>
+      );
+    case 'psychic':
+      return (
+        <>
+          <PokeLogoPsychic/>
+        </>
+      );
+    case 'rock':
+      return (
+        <>
+          <PokeLogoRock/>
+        </>
+      );
+    case 'steel':
+      return (
+        <>
+          <PokeLogoSteel/>
+        </>
+      );
+    case 'water':
+      return (
+        <>
+          <PokeLogoWater/>
+        </>
+      );
+    default:
+      return (
+        <>
+        </>
+      )
+  }
 }

@@ -2,10 +2,14 @@ import style from '@/components/Pokemon.module.css'
 import axios from "axios"
 import { useState, useEffect, useContext } from "react"
 import { useParams, Link } from "react-router-dom"
-import { HeaderColor } from '@/App'
+import { HeaderColor, ModalContext} from '@/App'
+import TypeShow from '@/services/TypeShow'
+import TypeColor from '@/services/TypeColor'
+
 
 export default function Pokemon() {
-
+  
+  const [pokeActive, setPokeActive] = useContext(ModalContext)
   const [headerColor, setHeaderColor] = useContext(HeaderColor)
 
   const {pokeid} = useParams()
@@ -19,25 +23,6 @@ export default function Pokemon() {
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeid}`)
     setPokemon(res.data)
   }
-
-  // const viewTypes = pokemon.types.map((item) => {
-  //   return (
-  //     <>
-  //       <div>{item.type.name}</div>
-  //     </>
-  //   )
-  // })
-
-  // const viewForms = pokemon.forms.map((item) => {
-  //   return (
-  //     <>
-  //       <div>
-  //         {item.name}
-  //       </div>
-  //     </>
-  //   )
-  // })
-
 
   console.log(pokemon)
     return (
@@ -57,9 +42,10 @@ export default function Pokemon() {
           </div>
           <div className={style.pokemon_color}>
             <h3>Type</h3>
-            {pokemon.types?.map((item, index) => (
+            {pokemon?.types?.map((item, index) => (
               <li key={index}>
-                <p>{item.type.name}</p>
+                <TypeShow gay={item.type.name}/>
+                <TypeColor nigger={pokemon?.types['0']?.type?.name} />
               </li>
             ))}
           </div>
@@ -77,11 +63,12 @@ export default function Pokemon() {
           <h2>Stats</h2>
           {pokemon.stats?.map((item, index) => (
             <li key={index}>
-              <span className={style.stat_name}>{item.stat.name}</span>
+              <span className={style.stat_name}>{item.stat.name}: </span>
               <span className={style.stat_num}>{item.base_stat}</span>
               <div className={style.stat_line}
               style={{
-                width: `${item.base_stat}%`
+                width: `${item.base_stat}%`,
+                backgroundColor: headerColor,
               }}>
               </div>
             </li>

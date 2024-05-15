@@ -9,10 +9,14 @@ export const ModalContext = createContext()
 export const ModalStatus = createContext()
 export const ModalPokemon = createContext()
 export const HeaderColor = createContext()
+export const SearchContext = createContext()
+export const PokedexContext = createContext()
 
 export default function App() {
+  const [pokedex, setPokedex] = useState([])
 
   const [headerColor, setHeaderColor] = useState('#f5f5f9')
+  const [searchTerm, setSearchTerm] = useState('')
 
   const [user, setUser] = useState(true)
   const [userInfo, setUserInfo] = useState({
@@ -55,18 +59,22 @@ export default function App() {
   }
 
   return (
-    <HeaderColor.Provider value={[headerColor, setHeaderColor]}>
-      <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
-        <UserContext.Provider value={[user, setUser]}>
-          <ModalContext.Provider value={[visible, setVisible]}>
-            <ModalStatus.Provider value={[status, setStatus]}>
-              <UserInfo.Provider value={[userInfo, setUserInfo]}>
-                <Routers />
-              </UserInfo.Provider>
-            </ModalStatus.Provider>
-          </ModalContext.Provider>
-        </UserContext.Provider>
-      </ModalPokemon.Provider>
-    </HeaderColor.Provider>
+  <PokedexContext.Provider value={[pokedex, setPokedex]}>
+    <SearchContext.Provider value={[searchTerm, setSearchTerm]}>
+      <HeaderColor.Provider value={[headerColor, setHeaderColor]}>
+        <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
+          <UserContext.Provider value={[user, setUser]}>
+            <ModalContext.Provider value={[visible, setVisible]}>
+              <ModalStatus.Provider value={[status, setStatus]}>
+                <UserInfo.Provider value={[userInfo, setUserInfo]}>
+                  <Routers />
+                </UserInfo.Provider>
+              </ModalStatus.Provider>
+            </ModalContext.Provider>
+          </UserContext.Provider>
+        </ModalPokemon.Provider>
+      </HeaderColor.Provider>
+    </SearchContext.Provider>
+  </PokedexContext.Provider>
   );
 }
