@@ -8,8 +8,11 @@ export const UserInfo = createContext()
 export const ModalContext = createContext()
 export const ModalStatus = createContext()
 export const ModalPokemon = createContext()
+export const HeaderColor = createContext()
 
 export default function App() {
+
+  const [headerColor, setHeaderColor] = useState('#f5f5f9')
 
   const [user, setUser] = useState(true)
   const [userInfo, setUserInfo] = useState({
@@ -51,17 +54,19 @@ export default function App() {
       })
   }
 
-  return(
-    <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
-      <UserContext.Provider value={[user, setUser]}>
-        <ModalContext.Provider value={[visible, setVisible]}>
-          <ModalStatus.Provider value={[status, setStatus]}>
-            <UserInfo.Provider value={[userInfo, setUserInfo]}>
-              <Routers/>
-            </UserInfo.Provider>
-          </ModalStatus.Provider>
-        </ModalContext.Provider>
-      </UserContext.Provider>
-    </ModalPokemon.Provider>
-  )
+  return (
+    <HeaderColor.Provider value={[headerColor, setHeaderColor]}>
+      <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
+        <UserContext.Provider value={[user, setUser]}>
+          <ModalContext.Provider value={[visible, setVisible]}>
+            <ModalStatus.Provider value={[status, setStatus]}>
+              <UserInfo.Provider value={[userInfo, setUserInfo]}>
+                <Routers />
+              </UserInfo.Provider>
+            </ModalStatus.Provider>
+          </ModalContext.Provider>
+        </UserContext.Provider>
+      </ModalPokemon.Provider>
+    </HeaderColor.Provider>
+  );
 }

@@ -1,0 +1,81 @@
+.link {
+  text-decoration: none;
+}
+
+.pokelist_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 160px);
+  grid-template-rows: repeat(auto-fit, 240px);
+  justify-content: center;
+  gap: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.pokelist_block {
+  border: 3px solid #a0a29f;
+  color: #000;
+  width: 160px;
+  height: 240px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.5s 0.2s ease-in;
+}
+
+.pokelist_block:hover {
+  box-shadow: 0 0 5px rgba(160,162,159, 0.8);
+  transition: all 0.5s ease-in;
+  background-color: rgba(160,162,159, 0.8);
+}
+
+.pokelist_block:hover .block_img img {
+  transform: scale(0.90);
+  transition: all 0.5s ease-in;
+}
+
+
+.block_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  height: 70px;
+}
+
+.block_name {
+  display: flex;
+  justify-content: start;
+  padding: 0 10px;
+  height: 30px;
+}
+
+.block_img {
+  height: 140px;
+  transform: translateY(5%);
+}
+
+.block_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.5s ease-in;
+}
+
+.block_diver {
+  text-decoration: underline;
+  width: 100%;
+  background-color: #f5f5f9;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0);
+  transition: all 0.5s 0.2s ease-in;
+  opacity: 0.75;
+}
+
+.pokelist_block:hover .block_diver {
+  transform: translateY(-100%);
+  transition: all 0.5s ease-out;
+}

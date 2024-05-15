@@ -1,0 +1,23 @@
+.pokemon {
+  display: flex;
+  justify-content: space-around;
+}
+
+@keyframes statLine {
+  from {
+    width: 0;
+    background-color: #fff;
+  }
+
+  to {
+    background-color: #d3425f;
+  }
+}
+
+.stat_line {
+  height: 20px;
+  transition: all 1s ease-out;
+  border-radius: 5px;
+  margin-top: 10px;
+  animation: statLine 1s ease-out forwards;
+}

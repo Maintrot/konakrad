@@ -1,5 +1,5 @@
 import Pokedex from '@/components/Pokedex'
-import Footer from '@/components/Footer'
+// import Footer from '@/components/Footer'
 import HeaderPokedex from '@/components/HeaderPokedex'
 
 export default function PokedexPage() {
@@ -7,7 +7,7 @@ export default function PokedexPage() {
     <div>
     <HeaderPokedex/>
     <Pokedex/>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
   )
 }

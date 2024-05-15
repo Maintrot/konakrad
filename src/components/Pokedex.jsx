@@ -1,9 +1,12 @@
 import style from '@/components/Pokedex.module.css'
 import axios from "axios"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from "react-router-dom"
+import { ModalPokemon } from '@/App'
 
 export default function Pokedex() {
+  const [pokeActive, setPokeActive] = useContext(ModalPokemon)
+
   const [pokedex, setPokedex] = useState([])
   const [status, setStatus] = useState(false)
   const [pokedexUnique, setPokedexUnique] = useState([])
@@ -13,7 +16,7 @@ export default function Pokedex() {
   }, [])
 
   async function getData() {
-    const responce = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=3')
+    const responce = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20')
 
     if (responce?.data?.results) {
       responce.data.results.forEach((item) => {
@@ -23,6 +26,7 @@ export default function Pokedex() {
               return [...prevState, 
                 {name: res.data.name, 
                 id: res.data.id,
+                types: res.data.types,
                 img: res.data.sprites.other['official-artwork'].front_default}]
             })
           })
@@ -46,14 +50,29 @@ export default function Pokedex() {
     setPokedexUnique(uniqueList)
   }
 
-  const viewPokemon = pokedexUnique.map((item) => {
+  const viewPokemon = pokedex.map((item, index) => {
     return (
-      <li key={item.id} >
-        <Link to={'/pokemon/' + item.id}>
+      <li key={index} >
+        <Link className={style.link} onClick={() => {setPokeActive(true)}} to={'/pokemon/' + item.id}>
           <div className={style.pokelist_block}>
-            <img src={item.img} alt="pokemon_img" />
-            <div>
+            <span className={style.block_title}>
+              <h1>{item.id}</h1>
+              <div>
+                {item?.types?.map((item, index) => (
+                  <li key={index}>
+                    <p>{item.type.name}</p>
+                  </li>
+                ))}
+              </div>
+            </span>
+            <span className={style.block_name}>
               <h2>{item.name}</h2>
+            </span>
+            <div className={style.block_img}>
+              <img src={item.img} alt="pokemon_img" />
+            </div>
+            <div className={style.block_diver}>
+              <h3>learn more</h3>
             </div>
           </div>
         </Link>
@@ -61,14 +80,12 @@ export default function Pokedex() {
     )
   })
 
-  console.log(pokedexUnique)
+  console.log(pokedex)
 
   return (
     <div>
       <div className={style.pokelist_grid}>
-        <ul>
-          {viewPokemon}
-        </ul>
+        {viewPokemon}
       </div>
     </div>
   )

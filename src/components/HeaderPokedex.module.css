@@ -1,0 +1,29 @@
+.types_block nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+}
+
+.link h3 {
+  transition: all 0.3s ease-in;
+}
+
+.link h3:hover {
+  transition: all 0.3s ease-out;
+  transform: scale(1.05);
+}
+
+.header {
+  /* position: fixed; */
+  width: 100vw;
+  z-index: 1;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.3);
+  top: 0px;
+}
