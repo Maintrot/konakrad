@@ -1,9 +1,7 @@
 import style from '@/components/HeaderPokedex.module.css'
 import { Link } from 'react-router-dom'
-import { ModalPokemon } from '@/App'
 import { useContext, useEffect } from 'react'
-import { HeaderColor, SearchContext, PokedexContext} from '@/App'
-import TypeColor from '@/services/TypeColor'
+import { HeaderColor, SearchTypeContext, SearchTermContext, PokedexContext, ModalPokemon } from '@/App'
 import PokeLogoBug from '@/assets/pokelogos/PokeLogoBug'
 import PokeLogoDragon from '@/assets/pokelogos/PokeLogoDragon'
 import PokeLogoElectric from '@/assets/pokelogos/PokeLogoElectric'
@@ -24,11 +22,12 @@ import PokeLogoSteel from '@/assets/pokelogos/PokeLogoSteel'
 import PokeLogoWater from '@/assets/pokelogos/PokeLogoWater'
 
 
-export default function HeaderPokedex() {
-  const [searchTerm, setSearchTerm] = useContext(SearchContext)
+export default function HeaderPokedex(props) {
+  const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
+  const [searchType, setSearchType] = useContext(SearchTypeContext)
+  const [pokedex, setPokedex] = useContext(PokedexContext)
   const [pokeActive, setPokeActive] = useContext(ModalPokemon)
   const [headerColor, setHeaderColor] = useContext(HeaderColor)
-  const [pokedex, setPokedex] = useContext(PokedexContext)
 
   useEffect(() => {
     function changeHeader() {
@@ -55,6 +54,7 @@ export default function HeaderPokedex() {
               <nav>
                 <PokeLogoBug/>
                 <PokeLogoDark/>
+                <PokeLogoDragon/>
                 <PokeLogoElectric/>
                 <PokeLogoFairy/>
                 <PokeLogoFighting/>
@@ -72,19 +72,28 @@ export default function HeaderPokedex() {
                 <PokeLogoWater/>
               </nav>
               <input
-                type="text"
                 value={searchTerm}
+                type="text"
                 autoFocus
                 autoComplete='off'
                 placeholder='Find your pokemon'
-                onChange={(e) => setSearchTerm(e.target.value)} 
+                onChange={(e) => {setSearchTerm(e.target.value)
+                  console.log(searchTerm)
+                }} 
               />
+              <button onClick={() => setSearchType('')}>clear type</button>
+              <h3>({searchType})</h3>
+              <h3>({searchTerm})</h3>
             </div>
           </>
         ) : (
           <>
             <div className={style.poke_back_block}>
-              <Link className={style.link} onClick={() => {setPokeActive(false)}} to='/pokedex' ><h3>pokedex</h3></Link>
+              <Link className={style.link} onClick={() => 
+                {setPokeActive(false)
+                  localStorage.removeItem('access_pokemon')
+                  setSearchType('')
+                }} to='/pokedex' ><h3>pokedex</h3></Link>
             </div>
           </>
         )}

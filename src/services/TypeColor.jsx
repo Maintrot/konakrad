@@ -3,8 +3,6 @@ import { useContext } from "react";
 
 export default function TypeColor(props) {
   const [headerColor, setHeaderColor] = useContext(HeaderColor)
-
-  console.log(props)
   
   switch (props?.nigger) {
     case 'bug':

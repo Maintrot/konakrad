@@ -471,6 +471,11 @@ button:hover {
   width: 40px;
 }
 
+.pokedex:active {
+  transform: scale(1.1);
+  box-shadow: none;
+}
+
 .pokedex svg {
   height: 32px;
   width: 32px;

@@ -1,6 +1,11 @@
+import { SearchTypeContext } from '@/app'
+import { useContext } from 'react'
+
 export default function PokeLogoDark() {
+  const [searchType, setSearchType] = useContext(SearchTypeContext)
+
   return (
-    <div className='dark pokedex pokemon'>
+    <div className='dark pokedex pokemon' onClick={() => setSearchType('dark')}>
       <svg
         width="512"
         height="512"

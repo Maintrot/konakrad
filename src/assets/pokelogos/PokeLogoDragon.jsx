@@ -1,6 +1,11 @@
+import { SearchTypeContext } from '@/app'
+import { useContext } from 'react'
+
 export default function PokeLogoDragon() {
+  const [searchType, setSearchType] = useContext(SearchTypeContext)
+
   return (
-    <div className='dragon pokedex pokemon'>
+    <div className='dragon pokedex pokemon' onClick={() => setSearchType('dragon')}>
       <svg
         width="512"
         height="512"

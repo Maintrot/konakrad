@@ -66,13 +66,13 @@ export default function TestPage() {
         </div>
       </div>
       <div className={style.visual_flex}>
-        <div className={style.visual_block}>
+        <div className={style.visual_block} id={style.id_visual_blockleft}>
           <h1>left</h1>
           <h2>left</h2>
           <h3>left</h3>
           <h4>left</h4>
         </div>
-        <div className={style.visual_block}>
+        <div className={style.visual_block} id={style.id_visual_blockright}>
           <h1>right</h1>
           <h2>right</h2>
           <h3>right</h3>

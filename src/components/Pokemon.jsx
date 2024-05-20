@@ -7,7 +7,7 @@ import TypeShow from '@/services/TypeShow'
 import TypeColor from '@/services/TypeColor'
 
 
-export default function Pokemon() {
+export default function Pokemon(props) {
   
   const [pokeActive, setPokeActive] = useContext(ModalContext)
   const [headerColor, setHeaderColor] = useContext(HeaderColor)
@@ -16,6 +16,7 @@ export default function Pokemon() {
   const [pokemon, setPokemon] = useState({})
 
   useEffect(() => {
+    setPokeActive(true)
     getData()
   }, [])
 
@@ -25,6 +26,7 @@ export default function Pokemon() {
   }
 
   console.log(pokemon)
+  console.log(pokeActive)
     return (
       <div className={style.pokemon}>
         <div className={style.pokemon_desc}>
@@ -39,13 +41,14 @@ export default function Pokemon() {
           <div className={style.pokemon_text}>
             <h3>Weight</h3>
             <p>{pokemon.weight}</p>
+            
           </div>
           <div className={style.pokemon_color}>
             <h3>Type</h3>
             {pokemon?.types?.map((item, index) => (
               <li key={index}>
                 <TypeShow gay={item.type.name}/>
-                <TypeColor nigger={pokemon?.types['0']?.type?.name} />
+                <TypeColor nigger={pokemon.types['0'].type.name} />
               </li>
             ))}
           </div>
@@ -77,32 +80,3 @@ export default function Pokemon() {
       </div>
     )
 }
-
-{/* <div className={style.pokemon_line}>
-            <h3>HP</h3>
-            <div>{pokemon?.stats['0'].base_stat}</div>
-          </div>
-          <div className={style.pokemon_line}>
-            <h3>Attack</h3>
-            <div>{pokemon?.stats['1'].base_stat}</div>
-          </div>
-          <div className={style.pokemon_line}>
-            <h3>Defence</h3>
-            <div>{pokemon?.stats['2'].base_stat}</div>
-          </div>
-          <div className={style.pokemon_line}>
-            <h3>Sp.Attack</h3>
-            <div>{pokemon?.stats['3'].base_stat}</div>
-          </div>
-          <div className={style.pokemon_line}>
-            <h3>Sp.Defence</h3>
-            <div>{pokemon?.stats['4'].base_stat}</div>
-          </div>
-          <div className={style.pokemon_line}>
-            <h3>Speed</h3>
-            <div>{pokemon?.stats['5'].base_stat}</div>
-          </div>
-          <div className={style.pokemon_line}>
-            <h3>Total</h3>
-            <div>{pokemon?.stats['0'].base_stat + pokemon?.stats['1'].base_stat + pokemon?.stats['2'].base_stat + pokemon?.stats['3'].base_stat + pokemon?.stats['4'].base_stat + pokemon?.stats['5'].base_stat}</div>
-          </div> */}

@@ -2,67 +2,105 @@ import style from '@/components/Pokedex.module.css'
 import axios from "axios"
 import { useState, useEffect, useContext } from 'react'
 import { Link } from "react-router-dom"
-import { ModalPokemon, PokedexContext } from '@/App'
+import { ModalPokemon, PokedexContext, SearchTermContext, SearchTypeContext } from '@/App'
 import TypeShow from '../services/TypeShow'
 
-export default function Pokedex() {
+export default function Pokedex(props) {
   const [pokeActive, setPokeActive] = useContext(ModalPokemon)
 
   const [pokedex, setPokedex] = useContext(PokedexContext)
+  const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
+  const [searchType, setSearchType] = useContext(SearchTypeContext)
+
   const [status, setStatus] = useState(false)
   const [pokedexUnique, setPokedexUnique] = useState([])
-
-  function filterCards(searchText, listOfCards) {
-    if (!searchText) {
-      return listOfCards
-    }
-    return listOfCards.filter(({text}) => text.toLowerCase().includes(searchText.toLowerCase()))
-  }
 
   useEffect(() => {
     getData()
   }, [])
 
   async function getData() {
-    const responce = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20')
+    try {
+      const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=100');
+      const results = response?.data?.results;
 
-    if (responce?.data?.results) {
-      responce.data.results.forEach((item) => {
-        axios.get(item.url)
-          .then((res) => {
-            setPokedex((prevState) => {
-              return [...prevState, 
-                {name: res.data.name, 
-                id: res.data.id,
-                types: res.data.types,
-                img: res.data.sprites.other['official-artwork'].front_default}]
-            })
-          })
-      })
+      if (results) {
+        const pokemonPromises = results.map((item) =>
+          axios.get(item.url).then((res) => ({
+            name: res.data.name,
+            id: res.data.id,
+            types: res.data.types,
+            img: res.data.sprites.other['official-artwork'].front_default,
+          }))
+        );
+
+        const pokemons = await Promise.all(pokemonPromises);
+        setPokedex(pokemons);
+        // Вызов другой функции после завершения getData
+        unique(pokemons);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  async function unique(pokedex) {
+    const pokeList = pokedex
+
+    const uniqueList = Array.from(new Set(pokeList.map(JSON.stringify))).map(JSON.parse)
+
+    setPokedex(uniqueList)
+    setPokedexUnique(uniqueList)
+  }
+
+  function filterCardsByTerm(searchText, listOfCards) {
+    if (!searchText) {
+      return listOfCards
+    }
+    
+    if (/^\d+$/.test(searchText)) {
+      console.log(Number(searchText))
+      return listOfCards.filter(({id}) => String(id).includes(searchText))
+    } else {
+      console.log(searchText)
+      return listOfCards.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()))
+
     }
   }
 
   useEffect(() => {
-    unique(pokedex)
-    console.log('useEffect')
-  }, [])
+    const Debounce = setTimeout(() => {
+      const filteredCards = filterCardsByTerm(searchTerm, pokedex)
+      setPokedexUnique(filteredCards)
+    }, 300)
 
-  function unique(pokedex) {
-    const pokeList = pokedex
+    return () => clearTimeout(Debounce)
+  }, [searchTerm])
 
-    const uniqueList = Array.from(new Set(pokeList.map(JSON.stringify))).map(JSON.parse)
-    
-    console.log('qwe')
-    console.log(uniqueList)
-
-    setPokedexUnique(uniqueList)
+  function filterCardsByType(searchType, listOfCards) {
+    if (!searchType) {
+      return listOfCards
+    }
+    return listOfCards.filter((list) => list.types[0].type.name.toLowerCase().includes(searchType.toLowerCase()))
   }
 
-  const viewPokemon = pokedex.map((item, index) => {
+  useEffect(() => {
+    const Debounce = setTimeout(() => {
+      const filteredCards = filterCardsByType(searchType, pokedex)
+      setPokedexUnique(filteredCards)
+    }, 300)
+
+    return () => clearTimeout(Debounce)
+  }, [searchType])
+
+  const viewPokemon = pokedexUnique.map((item, index) => {
 
     return (
       <li key={index} >
-        <Link className={style.link} onClick={() => {setPokeActive(true)}} to={'/pokemon/' + item.id}>
+        <Link className={style.link} onClick={() => 
+          {setPokeActive(true)
+            localStorage.setItem('access_pokemon', true)
+          }} to={'/pokemon/' + item.id}>
           <div className={style.pokelist_block}>
             <span className={style.block_title}>
               <h1>{item.id}</h1>

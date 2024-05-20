@@ -18,7 +18,6 @@ import PokeLogoSteel from '@/assets/pokelogos/PokeLogoSteel'
 import PokeLogoWater from '@/assets/pokelogos/PokeLogoWater'
 
 export default function TypeShow(props) {
-  console.log(props)
   switch (props?.gay) {
     case 'bug':
       return (
