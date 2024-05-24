@@ -2,55 +2,66 @@ import style from '@/components/Pokedex.module.css'
 import axios from "axios"
 import { useState, useEffect, useContext } from 'react'
 import { Link } from "react-router-dom"
-import { ModalPokemon, PokedexContext, SearchTermContext, SearchTypeContext } from '@/App'
-import TypeShow from '../services/TypeShow'
+import { ModalPokemon, PokedexContext, SearchTermContext, SearchTypeContext, LoadedActiveContext } from '@/App'
+import TypeShow from '@/services/TypeShow'
+import PokePokeBall from '@/assets/pokelogos/PokePokeBall'
 
-export default function Pokedex(props) {
+export default function Pokedex() {
   const [pokeActive, setPokeActive] = useContext(ModalPokemon)
+  const [loadedActive, setLoadedActive] = useContext(LoadedActiveContext)
 
   const [pokedex, setPokedex] = useContext(PokedexContext)
   const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
   const [searchType, setSearchType] = useContext(SearchTypeContext)
 
-  const [status, setStatus] = useState(false)
+  const [loadPage, setLoadPage] = useState(true)
   const [pokedexUnique, setPokedexUnique] = useState([])
 
   useEffect(() => {
-    getData()
+    if (loadedActive == 'notCompleted') {
+      getData()
+      setLoadedActive('completed')
+    } else {
+      setPokedexUnique(pokedex)
+      setLoadPage(false)
+    }
   }, [])
 
   async function getData() {
     try {
-      const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=100');
-      const results = response?.data?.results;
-
-      if (results) {
-        const pokemonPromises = results.map((item) =>
-          axios.get(item.url).then((res) => ({
-            name: res.data.name,
-            id: res.data.id,
-            types: res.data.types,
-            img: res.data.sprites.other['official-artwork'].front_default,
-          }))
-        );
-
-        const pokemons = await Promise.all(pokemonPromises);
-        setPokedex(pokemons);
-        // Вызов другой функции после завершения getData
-        unique(pokemons);
+      const fetchPokemons = async (url) => {
+        const response = await axios.get(url);
+        if (response?.data?.results) {
+          const pokemonPromises = response?.data?.results.map(async (item) =>
+            axios.get(item.url).then(async (res) => ({
+              name: res?.data?.name,
+              id: res?.data?.id,
+              types: res?.data?.types,
+              img: res?.data?.sprites?.other['official-artwork']?.front_default,
+            }))
+          );
+          return Promise.all(pokemonPromises);
+        }
+        return [];
+      };
+  
+      let offset = 0;
+      const limit = 200;
+      const allPokemons = [];
+  
+      while (offset < 1000) {
+        const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
+        const pokemons = await fetchPokemons(url);
+        allPokemons.push(...pokemons);
+        offset += limit;
       }
+  
+      setPokedex(allPokemons);
+      setPokedexUnique(allPokemons);
+      setLoadPage(false);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  }
-
-  async function unique(pokedex) {
-    const pokeList = pokedex
-
-    const uniqueList = Array.from(new Set(pokeList.map(JSON.stringify))).map(JSON.parse)
-
-    setPokedex(uniqueList)
-    setPokedexUnique(uniqueList)
   }
 
   function filterCardsByTerm(searchText, listOfCards) {
@@ -59,10 +70,8 @@ export default function Pokedex(props) {
     }
     
     if (/^\d+$/.test(searchText)) {
-      console.log(Number(searchText))
       return listOfCards.filter(({id}) => String(id).includes(searchText))
     } else {
-      console.log(searchText)
       return listOfCards.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()))
 
     }
@@ -72,7 +81,7 @@ export default function Pokedex(props) {
     const Debounce = setTimeout(() => {
       const filteredCards = filterCardsByTerm(searchTerm, pokedex)
       setPokedexUnique(filteredCards)
-    }, 300)
+    }, 400)
 
     return () => clearTimeout(Debounce)
   }, [searchTerm])
@@ -81,14 +90,14 @@ export default function Pokedex(props) {
     if (!searchType) {
       return listOfCards
     }
-    return listOfCards.filter((list) => list.types[0].type.name.toLowerCase().includes(searchType.toLowerCase()))
+    return listOfCards.filter((list) => list?.types[0]?.type?.name.toLowerCase().includes(searchType.toLowerCase()))
   }
 
   useEffect(() => {
     const Debounce = setTimeout(() => {
       const filteredCards = filterCardsByType(searchType, pokedex)
       setPokedexUnique(filteredCards)
-    }, 300)
+    }, 400)
 
     return () => clearTimeout(Debounce)
   }, [searchType])
@@ -103,7 +112,7 @@ export default function Pokedex(props) {
           }} to={'/pokemon/' + item.id}>
           <div className={style.pokelist_block}>
             <span className={style.block_title}>
-              <h1>{item.id}</h1>
+              <h1>{item?.id}</h1>
               <div>
                 {item?.types?.map((item, index) => (
                   <li key={index}>
@@ -113,10 +122,10 @@ export default function Pokedex(props) {
               </div>
             </span>
             <span className={style.block_name}>
-              <h2>{item.name}</h2>
+              <h2>{item?.name.toUpperCase()}</h2>
             </span>
             <div className={style.block_img}>
-              <img src={item.img} alt="pokemon_img" />
+              <img src={item?.img} alt="pokemon_img" />
             </div>
             <div className={style.block_diver}>
               <h3>learn more</h3>
@@ -127,13 +136,21 @@ export default function Pokedex(props) {
     )
   })
 
-  console.log(pokedex)
-
   return (
     <div>
-      <div className={style.pokelist_grid}>
+      {loadPage ? (
+        <>
+          <div>
+            <PokePokeBall/>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={style.pokelist_grid}>
         {viewPokemon}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

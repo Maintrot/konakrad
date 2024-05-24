@@ -1,7 +1,6 @@
 import Pokemon from '@/components/Pokemon'
-// import Footer from '@/components/Footer'
 import HeaderPokedex from '@/components/HeaderPokedex'
-import { useState } from 'react'
+import ModalPokemon from '../components/ModalPolemon'
 
 export default function PokemonPage() {
 
@@ -9,7 +8,7 @@ export default function PokemonPage() {
     <div>
     <HeaderPokedex />
     <Pokemon />
-    {/* <Footer/> */}
+    <ModalPokemon/>
     </div>
   )
 }

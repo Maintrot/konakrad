@@ -17,6 +17,7 @@ import PokeLogoPsychic from '@/assets/pokelogos/PokeLogoPsychic'
 import PokeLogoRock from '@/assets/pokelogos/PokeLogoRock'
 import PokeLogoSteel from '@/assets/pokelogos/PokeLogoSteel'
 import PokeLogoWater from '@/assets/pokelogos/PokeLogoWater'
+import PokePokeBall from '@/assets/pokelogos/PokePokeBall'
 
 export default function TestPage() {
   return(
@@ -98,6 +99,7 @@ export default function TestPage() {
       <PokeLogoRock/>
       <PokeLogoSteel/>
       <PokeLogoWater/>
+      <PokePokeBall/>
     </div>
     </>
   )

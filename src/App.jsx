@@ -12,11 +12,18 @@ export const HeaderColor = createContext()
 export const PokedexContext = createContext()
 export const SearchTermContext = createContext()
 export const SearchTypeContext = createContext()
+export const IdAbilityContext = createContext()
+export const ModalPokemonContext = createContext()
+export const LoadedActiveContext = createContext()
 
 export default function App() {
+  const [idAbility, setIdAbility] = useState(0)
   const [pokedex, setPokedex] = useState([])
   const [searchTerm, setSearchTerm] = useState('') 
   const [searchType, setSearchType] = useState('')
+  const [pokemonVisible, setPokemonVisible] = useState(false)
+  const [pokeActive, setPokeActive] = useState(false)
+  const [loadedActive, setLoadedActive] = useState('notCompleted')
 
   const [headerColor, setHeaderColor] = useState('#f5f5f9')
 
@@ -26,7 +33,6 @@ export default function App() {
   })
   const [visible, setVisible] = useState(false)
   const [status, setStatus] = useState('userAvatar')
-  const [pokeActive, setPokeActive] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem('access_token')) {
@@ -65,24 +71,32 @@ export default function App() {
   }
 
   return (
-    <SearchTermContext.Provider value={[searchTerm, setSearchTerm]}>
-      <SearchTypeContext.Provider value={[searchType, setSearchType]}>
-        <PokedexContext.Provider value={[pokedex, setPokedex]}>
-          <HeaderColor.Provider value={[headerColor, setHeaderColor]}>
-            <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
-              <UserContext.Provider value={[user, setUser]}>
-                <ModalContext.Provider value={[visible, setVisible]}>
-                  <ModalStatus.Provider value={[status, setStatus]}>
-                    <UserInfo.Provider value={[userInfo, setUserInfo]}>
-                      <Routers />
-                    </UserInfo.Provider>
-                  </ModalStatus.Provider>
-                </ModalContext.Provider>
-              </UserContext.Provider>
-            </ModalPokemon.Provider>
-          </HeaderColor.Provider>
-        </PokedexContext.Provider>
-      </SearchTypeContext.Provider>
-    </SearchTermContext.Provider>
+    <LoadedActiveContext.Provider value={[loadedActive, setLoadedActive]}>
+      <IdAbilityContext.Provider value={[idAbility, setIdAbility]}>
+        <ModalPokemonContext.Provider
+          value={[pokemonVisible, setPokemonVisible]}
+        >
+          <SearchTermContext.Provider value={[searchTerm, setSearchTerm]}>
+            <SearchTypeContext.Provider value={[searchType, setSearchType]}>
+              <PokedexContext.Provider value={[pokedex, setPokedex]}>
+                <HeaderColor.Provider value={[headerColor, setHeaderColor]}>
+                  <ModalPokemon.Provider value={[pokeActive, setPokeActive]}>
+                    <UserContext.Provider value={[user, setUser]}>
+                      <ModalContext.Provider value={[visible, setVisible]}>
+                        <ModalStatus.Provider value={[status, setStatus]}>
+                          <UserInfo.Provider value={[userInfo, setUserInfo]}>
+                            <Routers />
+                          </UserInfo.Provider>
+                        </ModalStatus.Provider>
+                      </ModalContext.Provider>
+                    </UserContext.Provider>
+                  </ModalPokemon.Provider>
+                </HeaderColor.Provider>
+              </PokedexContext.Provider>
+            </SearchTypeContext.Provider>
+          </SearchTermContext.Provider>
+        </ModalPokemonContext.Provider>
+      </IdAbilityContext.Provider>
+    </LoadedActiveContext.Provider>
   );
 }

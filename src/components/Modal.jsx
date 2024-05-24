@@ -1,5 +1,5 @@
 import style from '@/components/Modal.module.css'
-import { useState, useContext} from 'react'
+import { useContext } from 'react'
 import { ModalContext, ModalStatus } from '@/App'
 
 export default function Modal() {
@@ -28,7 +28,7 @@ export default function Modal() {
             <>
             </>
         ) : (
-            <div className={style.modal}>
+            <div className='modal'>
                 {status == 'userAvatar' ? (
                     <div className={style.modalWindow}>
                         <h1>Avatar</h1>
