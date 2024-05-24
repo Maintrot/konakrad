@@ -51,7 +51,7 @@ export default function Pokemon() {
                   <h3>Weight</h3>
                   <p>{pokemon.weight}</p>
                 </div>
-                <div className={style.pokemon_text}>
+                <div className={style.pokemon_text} id={style.abilities}>
                   <h3>Abilities</h3>
                   {pokemon?.abilities?.map((item, index) => (
                     <li key={index}>
@@ -106,7 +106,7 @@ export default function Pokemon() {
                       <div
                         className={style.stat_line}
                         style={{
-                          width: `${item.base_stat * 2}%`,
+                          width: `${(item.base_stat * 2) + 100}%`,
                           backgroundColor: headerColor,
                         }}
                       ></div>

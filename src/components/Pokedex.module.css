@@ -41,6 +41,13 @@ li {
   justify-content: space-between;
   padding: 0 5px;
   height: 70px;
+  gap: 5px;
+}
+
+.block_title div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .block_name {
